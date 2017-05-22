@@ -11,15 +11,15 @@ DEST = '..'
 
 paths = ->
   templates:
-    src: ['#{SRC}/pug/**/*.pug', '!#{SRC}/pug/includes/*']
+    src: ["#{SRC}/pug/*.pug", "!#{SRC}/pug/includes/*"]
     dest: DEST
   css:
-    src: ['#{SRC}/sass/main.sass']
+    src: ["#{SRC}/sass/main.sass"]
     dest: DEST
   php:
-    src: ['#{SRC}/php/*.php']
+    src: ["#{SRC}/php/*.php"]
     dest: DEST
-  build: ['#{DEST}/*.php', '#{DEST}/assets']
+  build: ["#{DEST}/*.php", "#{DEST}/assets"]
 
 # Alias gulp functions
 from = gulp.src
@@ -27,7 +27,7 @@ to   = gulp.dest
 
 # Compile the SASS and copy to build directory
 css = ->
-  from paths().css
+  from paths().css.src
     .pipe sass().on 'error', sass.logError
     .pipe name (path) ->
       path.basename = 'style'
@@ -35,14 +35,15 @@ css = ->
 
 # Render the pug templates
 templates = ->
-  from paths().templates
+  from paths().templates.src
+    .pipe pug()
     .pipe name (path) ->
       path.extname = '.php'
     .pipe to paths().templates.dest
 
 # Copy the PHP source files to the destination
 php = ->
-  from paths().php
+  from paths().php.src
     .pipe to paths().php.dest
 
 # Wipe everything if necessary
