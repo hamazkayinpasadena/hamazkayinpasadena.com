@@ -1,5 +1,12 @@
 <?php
 
+/* Enqueue styles */
+wp_enqueue_style('minireset', 'https://cdnjs.cloudflare.com/ajax/libs/minireset.css/0.0.2/minireset.css');
+wp_enqueue_style('main', get_stylesheet_uri(), ['minireset']);
+
+/* Enqueue scripts */
+wp_enqueue_scipt('fontawesome', 'https://use.fontawesome.com/c137c7c541.js');
+
 /* Register custom navigation menus */
 function register_custom_menus () {
   register_nav_menu("top", __("Top Navigation"));
