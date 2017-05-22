@@ -2,10 +2,10 @@
 
 /* Enqueue styles */
 wp_enqueue_style('minireset', 'https://cdnjs.cloudflare.com/ajax/libs/minireset.css/0.0.2/minireset.css');
-wp_enqueue_style('main', get_stylesheet_uri(), ['minireset']);
+wp_enqueue_style('main', get_stylesheet_uri(), array('minireset'));
 
 /* Enqueue scripts */
-wp_enqueue_scipt('fontawesome', 'https://use.fontawesome.com/c137c7c541.js');
+wp_enqueue_script('fontawesome', 'https://use.fontawesome.com/c137c7c541.js');
 
 /* Register custom navigation menus */
 function register_custom_menus () {
