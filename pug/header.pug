@@ -1,0 +1,14 @@
+<?php $title = is_front_page() ? 'Home' : wp_title('', false); ?>
+doctype html
+<html>
+  head
+    title
+      <?php echo $title . ' | ' . get_bloginfo('name'); ?>
+    <?php wp_head(); ?>
+  <body>
+    .
+      <?php wp_nav_menu(array(
+        'theme_location' => 'top',
+        'walker' => new Walker_Menu_Subtitles(),
+      )); ?>
+    h1 Hello, world!
