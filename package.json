@@ -1,0 +1,27 @@
+{
+  "name": "hamazkayinpasadena.com",
+  "version": "1.0.0",
+  "description": "Hamazkayin Pasadena's WordPress theme",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hamazkayinpasadena/hamazkayinpasadena.com.git"
+  },
+  "keywords": [
+    "wordpress",
+    "armenia",
+    "armenian",
+    "culture",
+    "organization",
+    "nonprofit"
+  ],
+  "author": "Purag Moumdjian <me@purag.me>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hamazkayinpasadena/hamazkayinpasadena.com/issues"
+  },
+  "homepage": "https://github.com/hamazkayinpasadena/hamazkayinpasadena.com#readme"
+}
