@@ -32,6 +32,7 @@ css = ->
     .pipe name (path) ->
       path.basename = 'style'
     .pipe to paths().css.dest
+gulp.task css
 
 # Render the pug templates
 templates = ->
@@ -40,11 +41,13 @@ templates = ->
     .pipe name (path) ->
       path.extname = '.php'
     .pipe to paths().templates.dest
+gulp.task templates
 
 # Copy the PHP source files to the destination
 php = ->
   from paths().php.src
     .pipe to paths().php.dest
+gulp.task php
 
 # Wipe everything if necessary
 gulp.task 'clean', ->
