@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/hamazkayinpasadena/hamazkayinpasadena.com/issues"
   },
-  "homepage": "https://github.com/hamazkayinpasadena/hamazkayinpasadena.com#readme"
+  "homepage": "https://github.com/hamazkayinpasadena/hamazkayinpasadena.com#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "path": "^0.12.7"
+  }
 }
