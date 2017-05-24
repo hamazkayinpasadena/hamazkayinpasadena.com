@@ -9,10 +9,9 @@ wp_enqueue_script('fontawesome', 'https://use.fontawesome.com/c137c7c541.js');
 
 /* Register custom navigation menus */
 function register_custom_menus () {
-  register_nav_menu("top", __("Top Navigation"));
-  register_nav_menu("sidebar_social", __("Sidebar Social Links"));
+  register_nav_menu('primary', __('Primary Navigation'));
 }
-add_action("init", "register_custom_menus");
+add_action('init', 'register_custom_menus');
 
 /* Custom navigation walker to show menu subtitles
  * Adapted from wp-includes/class-walker-nav-menu.php
@@ -54,7 +53,7 @@ class Walker_Menu_Subtitles extends Walker_Nav_Menu {
     $item_output = $args->before;
     $item_output .= '<a'. $attributes .'>';
     $item_output .= $title;
-    $item_output .= '<br><span>';
+    $item_output .= '<br><span class="subtitle">';
     $item_output .= $item -> description;
     $item_output .= '</span></a>';
     $item_output .= $args->after;
@@ -62,40 +61,5 @@ class Walker_Menu_Subtitles extends Walker_Nav_Menu {
     $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
   }
 }
-
-/* Shortcode for "announcement" cards */
-function shortcode_announcement ($atts) {
-  $color = "";
-  if (!empty($atts['color'])) {
-    $color = $atts['color'];
-  }
-
-  $output = "<div class='announcement " . $color . "'><header><h4>";
-  $output .= $atts['title'];
-  $output .= "</h4></header><p>";
-
-  $fields = array();
-
-  if (!empty($atts['datetime'])) {
-    $fields[] = "<i class='fa fa-fw fa-lg fa-calendar-o'></i><span>"
-      . $atts['datetime'] . "</span>";
-  }
-
-  if (!empty($atts['location'])) {
-    $fields[] = "<i class='fa fa-fw fa-lg fa-map-marker'></i><span>"
-      . $atts['location'] . "</span>";
-  }
-
-  if (!empty($atts['contact'])) {
-    $fields[] = "<i class='fa fa-fw fa-lg fa-phone'></i><span>"
-      . $atts['contact'] . "</span";
-  }
-
-  $output .= join("<br><br>", $fields);
-  $output .= "</p></div>";
-
-  return $output;
-}
-add_shortcode("announcement", "shortcode_announcement");
 
 ?>
