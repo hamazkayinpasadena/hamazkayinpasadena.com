@@ -5,3 +5,25 @@ nav
   position: fixed
   top: 0
   width: $width-nav
+
+  ul.menu
+    font-size: 0.8em
+
+    a
+      color: $color-nav-fg
+      display: block
+      font: $font-am-sans-bold
+      padding: 5px 0
+      text-align: center
+      text-decoration: none
+
+      span
+        font: $font-body
+        font-style: italic
+
+      &:hover
+        color: $color-nav-fg-hover
+
+    @for $i from 1 through length($color-nav-bg-list)
+      & > li:nth-child(#{length($color-nav-bg-list)}n + #{$i}):hover
+        background-color: nth($color-nav-bg-list, $i)
