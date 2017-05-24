@@ -2,13 +2,13 @@
 doctype html
 <html>
   head
+    meta(charset='utf-8')
     title
       <?php echo $title . ' | ' . get_bloginfo('name'); ?>
     <?php wp_head(); ?>
   <body>
-    .
+    nav.
       <?php wp_nav_menu(array(
         'theme_location' => 'top',
         'walker' => new Walker_Menu_Subtitles(),
       )); ?>
-    h1 Hello, world!
