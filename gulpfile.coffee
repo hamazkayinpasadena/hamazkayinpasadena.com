@@ -54,5 +54,11 @@ gulp.task 'clean', ->
   del paths().build,
     force: true
 
+# automatic builds
+gulp.task 'watch', ->
+  gulp.watch paths().css.src, css
+  gulp.watch paths().templates.src, templates
+  gulp.watch paths().php.src, php
+
 # Build everything
 gulp.task 'default', (gulp.parallel php, templates, css)
