@@ -51,9 +51,9 @@ class Walker_Menu_Subtitles extends Walker_Nav_Menu {
     $title = apply_filters('nav_menu_item_title', $title, $item, $args, $depth);
 
     $item_output = $args->before;
-    $item_output .= '<a'. $attributes .'>';
+    $item_output .= '<a'. $attributes .'><span class="am bold">';
     $item_output .= $title;
-    $item_output .= '<br><span class="subtitle">';
+    $item_output .= '</span><br><span class="subtitle">';
     $item_output .= $item -> description;
     $item_output .= '</span></a>';
     $item_output .= $args->after;
