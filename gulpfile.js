@@ -38,7 +38,7 @@ gulp.task(css);
 function templates (done) {
   gulp.src(paths().templates.src)
     .pipe(pug())
-    .pipe(rename((path) => path.extname = 'php'))
+    .pipe(rename((path) => path.extname = '.php'))
     .pipe(gulp.dest(paths().templates.dest));
   done();
 };
