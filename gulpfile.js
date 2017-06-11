@@ -21,6 +21,10 @@ const paths = () => ({
     src: [`${SRC}/php/*.php`],
     dest: DEST,
   },
+  static: {
+    src: [`${SRC}/static/**/*`],
+    dest: `${DEST}/static`
+  },
   build: [`${DEST}/*.php`, `${DEST}/assets`],
 });
 
@@ -52,6 +56,14 @@ function php (done) {
 };
 gulp.task(php);
 
+// Copy the static assets
+function static (done) {
+  gulp.src(paths().static.src)
+    .pipe(gulp.dest(paths().static.dest));
+  done();
+};
+gulp.task(static);
+
 // Wipe everything if necessary
 gulp.task('clean', (done) => {
   del(paths().build, {force: true});
@@ -66,4 +78,4 @@ gulp.task('watch', () => {
 });
 
 // Build everything
-gulp.task('default', gulp.parallel(php, templates, css));
+gulp.task('default', gulp.parallel(css, templates, php, static));
