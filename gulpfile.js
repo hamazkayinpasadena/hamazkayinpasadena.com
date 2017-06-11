@@ -53,8 +53,9 @@ function php (done) {
 gulp.task(php);
 
 // Wipe everything if necessary
-gulp.task('clean', () => {
+gulp.task('clean', (done) => {
   del(paths().build, {force: true});
+  done();
 });
 
 // automatic builds
