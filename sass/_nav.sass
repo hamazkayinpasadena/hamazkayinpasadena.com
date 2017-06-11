@@ -1,4 +1,5 @@
 nav
+  background-color: $color-nav-bg
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2)
   box-sizing: border-box
   height: 100%
@@ -7,28 +8,28 @@ nav
   top: 0
   width: $width-nav
 
+  .admin-bar &
+    padding-top: 32px
+
   ul.menu
     font-size: 0.8em
 
-    li
-      transition: $transition-standard
-
-    @for $i from 1 through length($color-nav-bg-list)
-      & > li:nth-child(#{length($color-nav-bg-list)}n + #{$i}):hover
-        background-color: nth($color-nav-bg-list, $i)
-
     a
-      color: $color-nav-fg
+      color: $color-nav-item-fg
       display: block
       font: $font-am-sans-bold
-      padding: 10px 0
-      text-align: center
+      padding: 10px 10px
+      text-align: right
       text-decoration: none
-      transition: $transition-standard
 
       span.subtitle
         font: $font-header
         color: $color-subtitle-fg
+
+    .current-menu-item a, a:hover
+      background-color: $color-nav-item-bg-hover
+      box-shadow: inset 0px 1px 0px $color-nav-item-border-hover, inset 0px -1px 0px $color-nav-item-border-hover
+      color: $color-nav-item-fg-hover
 
   ul.sub-menu
     display: none
