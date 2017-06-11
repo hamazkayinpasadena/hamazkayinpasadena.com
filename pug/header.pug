@@ -6,7 +6,7 @@ doctype html
     title
       <?php echo $title . ' | ' . get_bloginfo('name'); ?>
     <?php wp_head(); ?>
-  <body class="<?php body_class(); ?>">
+  <body <?php body_class(); ?>>
     nav.
       <?php wp_nav_menu(array(
         'theme_location' => 'top',
