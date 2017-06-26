@@ -10,6 +10,7 @@ wp_enqueue_script('fontawesome', 'https://use.fontawesome.com/c137c7c541.js');
 /* Register custom navigation menus */
 function register_custom_menus () {
   register_nav_menu('primary', __('Primary Navigation'));
+  register_nav_menu('booklist', __('Book List'));
 }
 add_action('init', 'register_custom_menus');
 
