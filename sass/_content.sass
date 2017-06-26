@@ -23,6 +23,14 @@
   h5
     font-size: 1em
 
+  a
+    color: inherit
+    text-decoration: none
+    border-bottom: 2px dotted $color-highlight
+
+    &:hover
+      color: $color-highlight
+
   p
     margin-bottom: 1em
 
@@ -37,11 +45,16 @@
       margin-right: -20px
 
   .feature
-    background: #eee
+    background: $color-nav-bg
+    display: flex
     margin: 0 -20px
     position: relative
 
+    h1, h2, h3, h4, h5
+      border-left-color: transparent
+
     img
+      align-self: center
       margin: 0
 
       &.alignleft
@@ -50,5 +63,27 @@
       &.alignright
         margin-left: 20px
 
-    div
+    & > div
+      box-sizing: border-box
       display: inline-block
+      flex: 1
+      padding: 20px 0
+
+      ul
+        display: inline-block
+
+        li
+          margin-bottom: 2px
+
+          a
+            background-color: $color-nav-item-bg-hover
+            border-radius: 4px
+            border: 1px solid $color-nav-item-border-hover
+            color: $color-nav-item-fg
+            display: block
+            padding: 5px 10px
+            text-decoration: none
+
+            &:hover
+              border-color: $color-highlight
+              color: $color-highlight
