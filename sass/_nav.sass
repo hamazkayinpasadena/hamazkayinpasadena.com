@@ -11,6 +11,32 @@ nav
   .admin-bar &
     padding-top: 32px
 
+  .logo
+    display: block
+    font-size: .9em
+    margin-bottom: 15px
+    text-align: center
+    text-decoration: none
+
+    svg
+      background-color: $color-highlight
+      display: inline-block
+      height: 100px
+      margin: 15px 0 5px 0
+      width: 100px
+
+      path
+        fill: $color-nav-bg
+
+    span
+      display: inline-block
+      &.site-title
+        color: $color-nav-item-fg
+        font: $font-am-sans-bold
+      &.site-title-en
+        color: $color-subtitle-fg
+        font: $font-header
+
   ul.menu
     font-size: 0.8em
 
