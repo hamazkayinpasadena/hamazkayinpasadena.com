@@ -2,11 +2,10 @@ extends includes/template.pug
 
 block content
   #slider
+  .feature.zigzag
+    img.alignleft(src='http://hamazkayinpasadena.com/wp-content/uploads/2017/06/hampas-reading.png')
+    div.booklist
+      <?php wp_nav_menu(array('theme_location' => 'booklist')); ?>
   <?php while (have_posts()): the_post(); ?>
-  h2
-    span.am.bold
-      <?php echo get_post_meta(get_the_ID(), 'title_am', true); ?>
-    span.subtitle
-      <?php the_title(); ?>
   <?php the_content(); ?>
   <?php endwhile; ?>
