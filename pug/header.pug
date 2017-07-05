@@ -7,14 +7,15 @@ doctype html
       <?php echo $title . ' | ' . get_bloginfo('name'); ?>
     <?php wp_head(); ?>
   <body <?php body_class(); ?>>
-    nav
-      a.logo(href='/')
-        svg(viewBox='0 0 190 175')
-          path(d='M35.5 38.2c0-3.7 3-6.7 6.7-6.7 20.2 0 43 0 65.8 0 23.3 0 46.8 0 82.1 0V7.4c-22.9 0-105.9 0-149.7 0 -15.2 0-27.5 12.3-27.6 27.5l-0.3 50H0v24.6h12.4v0l0.1 73.2h23v-0.3 -73c0 0 116.7 0 117.3 0.1 1.2 0.3 2.4 0.8 2.7 3.3 0.2 1.1 0.2 69.8 0.2 69.8h22.9c0 0 0.1-52.7 0-69.7 0-6.4-2.3-12.3-6.8-17.7 -5.7-6.8-12.9-10.2-22-10.2h-0.1C137 85 35.5 84.9 35.5 84.9S35.5 47.4 35.5 38.2L35.5 38.2z')
-        span.site-title Համազգային Փասատինա
-        span.site-title-en Hamazkayin Pasadena
-      .
-        <?php wp_nav_menu(array(
-          'theme_location' => 'primary',
-          'walker' => new Walker_Menu_Subtitles(),
-        )); ?>
+    <div id='main'>
+      nav
+        a.logo(href='/')
+          svg(viewBox='0 0 190 175')
+            path(d='M35.5 38.2c0-3.7 3-6.7 6.7-6.7 20.2 0 43 0 65.8 0 23.3 0 46.8 0 82.1 0V7.4c-22.9 0-105.9 0-149.7 0 -15.2 0-27.5 12.3-27.6 27.5l-0.3 50H0v24.6h12.4v0l0.1 73.2h23v-0.3 -73c0 0 116.7 0 117.3 0.1 1.2 0.3 2.4 0.8 2.7 3.3 0.2 1.1 0.2 69.8 0.2 69.8h22.9c0 0 0.1-52.7 0-69.7 0-6.4-2.3-12.3-6.8-17.7 -5.7-6.8-12.9-10.2-22-10.2h-0.1C137 85 35.5 84.9 35.5 84.9S35.5 47.4 35.5 38.2L35.5 38.2z')
+          span.site-title Համազգային Փասատինա
+          span.site-title-en Hamazkayin Pasadena
+        .
+          <?php wp_nav_menu(array(
+            'theme_location' => 'primary',
+            'walker' => new Walker_Menu_Subtitles(),
+          )); ?>
