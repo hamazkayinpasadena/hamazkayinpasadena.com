@@ -63,4 +63,25 @@ class Walker_Menu_Subtitles extends Walker_Nav_Menu {
   }
 }
 
+function is_parent_page () {
+  global $post;
+  return count(get_pages(array('child_of' => $post->ID))) > 0;
+}
+
+function is_child_page () {
+  global $post;
+  return $post -> post_parent != 0;
+}
+
+function get_secondary_nav_parent () {
+  global $post;
+  if (is_parent_page()) {
+    return $post -> ID;
+  } elseif (is_child_page()) {
+    return $post -> post_parent;
+  } else {
+    return 0;
+  }
+}
+
 ?>
