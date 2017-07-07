@@ -6,16 +6,19 @@ nav
   position: fixed
   top: 0
   width: $width-nav
-  z-index: 2
+  z-index: 4
 
-  &#secondary
+  &.sub
     background: #fff
     display: flex
     flex-direction: column
     justify-content: center
-    margin-left: $width-nav
     width: $width-subnav
-    z-index: 1
+
+  @for $i from 2 through 4
+    &:nth-of-type(#{$i})
+      margin-left: $width-nav + (($i - 2) * $width-subnav)
+      z-index: (5 - $i)
 
   .admin-bar &
     padding-top: 32px

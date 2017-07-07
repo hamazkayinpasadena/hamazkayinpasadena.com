@@ -20,17 +20,6 @@ doctype html
               'depth' => 1,
               'theme_location' => 'primary',
               'walker' => new Walker_Menu_Subtitles(),
-            ));
-
-            if (is_parent_page() || is_child_page()) {
+            )); 
           ?>
-      nav#secondary
-        ul.
-          <?php
-              wp_list_pages(array(
-                'child_of' => get_secondary_nav_parent(),
-                'sort_column' => 'menu_order',
-                'title_li' => '',
-              ));
-            }
-          ?>
+      <?php list_submenus(); ?>

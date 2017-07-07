@@ -68,19 +68,30 @@ function is_parent_page () {
   return count(get_pages(array('child_of' => $post->ID))) > 0;
 }
 
-function is_child_page () {
+function content_class () {
   global $post;
-  return $post -> post_parent != 0;
+  $parents = get_ancestors($post -> ID, 'page');
+  if (is_parent_page()) {
+    $parents[] = $post -> ID;
+  }
+  echo count($parents) > 0 ? 'class="submenu-' . count($parents) . '"' : '';
 }
 
-function get_secondary_nav_parent () {
+function list_submenus () {
   global $post;
+  $parents = get_ancestors($post -> ID, 'page');
   if (is_parent_page()) {
-    return $post -> ID;
-  } elseif (is_child_page()) {
-    return $post -> post_parent;
-  } else {
-    return 0;
+    array_unshift($parents, $post -> ID);
+  }
+  for ($i = count($parents) - 1; $i >= 0; $i--) {
+    echo '<nav class="sub"><ul>';
+    wp_list_pages(array(
+      'child_of' => $parents[$i],
+      'depth' => 1,
+      'sort_column' => 'menu_order',
+      'title_li' => '',
+    ));
+    echo '</ul></nav>';
   }
 }
 
