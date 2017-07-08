@@ -17,9 +17,8 @@ doctype html
         .
           <?php
             wp_nav_menu(array(
-              'depth' => 1,
+              'depth' => 0,
               'theme_location' => 'primary',
               'walker' => new Walker_Menu_Subtitles(),
             )); 
           ?>
-      <?php list_submenus(); ?>

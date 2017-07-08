@@ -68,31 +68,4 @@ function is_parent_page () {
   return count(get_pages(array('child_of' => $post->ID))) > 0;
 }
 
-function content_class () {
-  global $post;
-  $parents = get_ancestors($post -> ID, 'page');
-  if (is_parent_page()) {
-    $parents[] = $post -> ID;
-  }
-  echo count($parents) > 0 ? 'class="submenu-' . count($parents) . '"' : '';
-}
-
-function list_submenus () {
-  global $post;
-  $parents = get_ancestors($post -> ID, 'page');
-  if (is_parent_page()) {
-    array_unshift($parents, $post -> ID);
-  }
-  for ($i = count($parents) - 1; $i >= 0; $i--) {
-    echo '<nav class="sub"><ul>';
-    wp_list_pages(array(
-      'child_of' => $parents[$i],
-      'depth' => 1,
-      'sort_column' => 'menu_order',
-      'title_li' => '',
-    ));
-    echo '</ul></nav>';
-  }
-}
-
 ?>

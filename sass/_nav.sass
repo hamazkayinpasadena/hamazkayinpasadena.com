@@ -6,38 +6,7 @@ nav
   position: fixed
   top: 0
   width: $width-nav
-  z-index: 4
-
-  &.sub
-    background: #fff
-    display: flex
-    flex-direction: column
-    justify-content: center
-    text-align: left
-    width: $width-nav
-
-    & > ul > li.current_page_item > a, & > ul > li.current_page_ancestor > a, & > ul > li > a:hover
-      background-color: $color-highlight
-      box-shadow: none
-      color: #fff
-
-    .children
-      display: none
-      font-size: .9em
-      opacity: 0
-      max-height: 0
-      text-align: right
-      transition: $transition-standard
-
-    li:hover .children
-      display: block
-      opacity: 1
-      max-height: 100%
-
-  @for $i from 2 through 4
-    &:nth-of-type(#{$i})
-      margin-left: $width-nav + (($i - 2) * $width-nav)
-      z-index: (5 - $i)
+  z-index: 1
 
   .admin-bar &
     padding-top: 32px
@@ -69,21 +38,47 @@ nav
         font: $font-header
 
   ul
-    font-size: 0.8em
+    &.sub-menu
+      background-color: #fff
+      box-shadow: 0px 0px 3px rgba(0,0,0,0.2)
+      display: flex
+      flex-direction: column
+      height: 100%
+      justify-content: center
+      left: 90%
+      opacity: 0
+      position: absolute
+      top: 0
+      transition: $transition-standard
+      visibility: hidden
+      width: 130px
 
-    a
-      color: $color-nav-item-fg
-      display: block
-      font: $font-am-sans-bold
-      padding: 10px 10px
-      text-align: right
-      text-decoration: none
+    li
+      a
+        color: $color-nav-item-fg
+        display: block
+        font: $font-am-sans-bold
+        font-size: .8em
+        padding: 10px 10px
+        text-align: right
+        text-decoration: none
 
-      span.subtitle
-        font: $font-header
-        color: $color-subtitle-fg
+        span.subtitle
+          font: $font-header
+          color: $color-subtitle-fg
 
-    .current-menu-item a, .current-menu-ancestor a, .current-page-item a, .current-page-ancestor a, a:hover
-      background-color: $color-nav-item-bg-hover
-      box-shadow: inset 0px 1px 0px $color-nav-item-border-hover, inset 0px -1px 0px $color-nav-item-border-hover
-      color: $color-nav-item-fg-hover
+      &.menu-item-has-children
+        & > a .am:after
+          content: '\0025b6'
+          font-size: .6em
+          margin-left: .5em
+
+        &:hover > .sub-menu
+          left: 100%
+          opacity: 1
+          visibility: visible
+
+      &.menu-item-has-children:hover > a, &.current-menu-item > a, &.current-menu-ancestor > a, &.current-page-item > a, &.current-page-ancestor > a, a:hover
+        background-color: $color-nav-item-bg-hover
+        box-shadow: inset 0px 1px 0px $color-nav-item-border-hover, inset 0px -1px 0px $color-nav-item-border-hover
+        color: $color-nav-item-fg-hover
