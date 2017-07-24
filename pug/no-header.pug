@@ -1,0 +1,9 @@
+extends includes/template.pug
+
+block fileheader
+  <?php /* Template Name: No Page Header */ ?>
+
+block content
+  <?php while (have_posts()): the_post(); ?>
+  <?php the_content(); ?>
+  <?php endwhile; ?>
