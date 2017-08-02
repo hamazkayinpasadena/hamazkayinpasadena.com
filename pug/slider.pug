@@ -1,0 +1,18 @@
+extends includes/template.pug
+
+block fileheader
+  <?php /* Template Name: Full-page Slider */ ?>
+
+block content
+  <?php while (have_posts()): the_post(); ?>
+  #slider.
+    <?php
+      $slides = get_post_meta(get_the_ID(), 'slides');
+      $duration = get_post_meta(get_the_ID(), 'slide_duration', true);
+      $num = count($slides);
+      foreach ($slides as $i => $slide) {
+        echo '<div class="slide" style="background-image:url(' . $slide . '); animation: slider-' . $num . '-slide-' . $i . ' ' . ($num * $duration) . 's infinite;"></div>';
+      }
+    ?>
+  <?php the_content(); ?>
+  <?php endwhile; ?>

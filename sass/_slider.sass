@@ -1,0 +1,45 @@
+@for $num from 2 to 7
+  $gap: 100 / $num
+  @for $i from 0 to $num
+    @keyframes slider-#{$num}-slide-#{$i}
+      @if $i == 0
+        0%
+          opacity: 1
+      @else
+        0%
+          opacity: 0
+      #{($i * $gap) % 100}%
+        opacity: 0
+      #{($i * $gap + 10) % 100}%
+        opacity: 1
+      #{(($i + 1) * $gap) % 100}%
+        opacity: 1
+      #{(($i + 1) * $gap + 10) % 100}%
+        opacity: 0
+
+body.page-template-slider
+  height: 100%
+
+  #main
+    height: 100%
+    max-width: 100%
+    margin: 0
+
+    #content
+      height: 100%
+      padding: 0
+      width: 100%
+
+      #slider
+        height: 100%
+        position: relative
+        width: 100%
+
+        .slide
+          background-position: center center
+          background-size: cover
+          height: 100%
+          left: 0
+          position: absolute
+          top: 0
+          width: 100%
