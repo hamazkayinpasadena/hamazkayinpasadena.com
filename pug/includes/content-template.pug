@@ -1,0 +1,7 @@
+extends static-template
+
+block pre-content
+  <?php while (have_posts()): the_post(); ?>
+
+block post-content
+  <?php endwhile; ?>

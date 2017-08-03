@@ -1,11 +1,9 @@
-extends includes/template.pug
+extends includes/content-template
 
 block content
-  <?php while (have_posts()): the_post(); ?>
   h2
     span.am.bold
       <?php echo get_post_meta(get_the_ID(), 'title_am', true); ?>
     span.subtitle
       <?php the_title(); ?>
   <?php the_content(); ?>
-  <?php endwhile; ?>
