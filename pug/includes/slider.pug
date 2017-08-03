@@ -1,6 +1,6 @@
 extends template.pug
 
-block content
+block pre-content
   <?php while (have_posts()): the_post(); ?>
   #slider.
     <?php
@@ -11,5 +11,6 @@ block content
         echo '<div class="slide" style="background-image:url(' . $slide . '); animation: slider-' . $num . '-slide-' . $i . ' ' . ($num * $duration) . 's infinite;"></div>';
       }
     ?>
-  <?php the_content(); ?>
+
+block post-content
   <?php endwhile; ?>

@@ -2,3 +2,11 @@ extends includes/slider.pug
 
 block fileheader
   <?php /* Template Name: Partial-page Slider */ ?>
+
+block content
+  h2
+    span.am.bold
+      <?php echo get_post_meta(get_the_ID(), 'title_am', true); ?>
+    span.subtitle
+      <?php the_title(); ?>
+  <?php the_content(); ?>
