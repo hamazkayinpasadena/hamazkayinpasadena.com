@@ -1,0 +1,10 @@
+extends includes/static-template
+
+block content
+  h2 Oops! That page couldn't be found.
+  p
+    | You can go 
+    a(href='#' onclick='history.go(-1); return false;') back
+    | , or you can go 
+    a(href='/') home
+    | .
