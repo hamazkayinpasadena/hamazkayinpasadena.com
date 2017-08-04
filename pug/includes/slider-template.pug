@@ -1,7 +1,8 @@
-extends static-template.pug
+extends static-template
 
 block pre-content
   <?php while (have_posts()): the_post(); ?>
+  block pre-slider
   #slider.
     <?php
       $slides = get_post_meta(get_the_ID(), 'slides');
@@ -11,6 +12,7 @@ block pre-content
         echo '<div class="slide" style="background-image:url(' . $slide . '); animation: slider-' . $num . '-slide-' . $i . ' ' . ($num * $duration) . 's infinite;"></div>';
       }
     ?>
+  block post-slider
 
 block post-content
   <?php endwhile; ?>

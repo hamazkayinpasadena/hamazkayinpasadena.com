@@ -3,10 +3,12 @@ extends includes/slider-template
 block fileheader
   <?php /* Template Name: Partial-page Slider */ ?>
 
-block content
+block pre-slider
   h2
     span.am.bold
       <?php echo get_post_meta(get_the_ID(), 'title_am', true); ?>
     span.subtitle
       <?php the_title(); ?>
+
+block content
   <?php the_content(); ?>
