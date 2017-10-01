@@ -44,8 +44,21 @@ body.page-template-full-page-slider
       padding: 0
       width: 100%
 
-body.page-template-partial-page-slider
-  #slider
-    width: calc(100% + 40px)
-    height: 400px
-    margin: 0 0 20px -20px
+body.page-template-partial-page-slider, body.page-template-narrow-page-slider
+  #content
+    padding-top: ($height-slider + $margin-nav)
+
+    #slider
+      width: 100%
+      height: $height-slider
+      left: 0
+      margin-top: -($height-slider + $margin-nav)
+      position: absolute
+
+body.page-template-narrow-page-slider
+  #content
+    padding-top: ($height-slider-narrow + $margin-nav)
+
+    #slider
+      height: $height-slider-narrow
+      margin-top: -($height-slider-narrow + $margin-nav)
