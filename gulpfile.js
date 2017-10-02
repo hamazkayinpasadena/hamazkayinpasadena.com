@@ -14,7 +14,7 @@ const paths = () => ({
     dest: DEST,
   },
   css: {
-    src: [`${SRC}/sass/main.sass`],
+    src: [`${SRC}/sass/**/*.sass`],
     dest: DEST,
   },
   php: {
@@ -32,7 +32,7 @@ const paths = () => ({
 function css (done) {
   gulp.src(paths().css.src)
     .pipe(sass().on('error', sass.logError))
-    .pipe(rename((path) => path.basename = 'style'))
+    // .pipe(rename((path) => path.basename = 'style'))
     .pipe(gulp.dest(paths().css.dest));
   done();
 };
