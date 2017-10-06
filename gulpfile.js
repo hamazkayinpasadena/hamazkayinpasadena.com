@@ -10,7 +10,7 @@ const DEST = '..';
 
 const paths = () => ({
   templates: {
-    src: [`${SRC}/pug/*.pug`, `!${SRC}/pug/includes/*`],
+    src: [`${SRC}/pug/**/*.pug`, `!${SRC}/pug/includes/*`],
     dest: DEST,
   },
   css: {
