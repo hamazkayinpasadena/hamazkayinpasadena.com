@@ -25,7 +25,7 @@
 
 #tribe-events-content.tribe-events-single
   p.tribe-events-back
-    a(href="<?php echo esc_url( tribe_get_events_link() ); ?>")
+    a(href!="<?php echo esc_url( tribe_get_events_link() ); ?>")
       <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?>
 
   // Notices
