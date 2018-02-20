@@ -68,4 +68,59 @@ function is_parent_page () {
   return count(get_pages(array('child_of' => $post->ID))) > 0;
 }
 
+function show_post_grid ($atts) {
+  $a = shortcode_atts(array(
+    'rows' => 2,
+    'cols' => 2,
+    'tag' => 'featured',
+  ), $atts);
+
+  // min columns = 2, max columns = 4
+  if ($a['cols'] < 2) $a['cols'] = 2;
+  if ($a['cols'] > 4) $a['cols'] = 4;
+
+  // min rows = 1, max rows = 4
+  if ($a['rows'] < 1) $a['rows'] = 1;
+  if ($a['rows'] > 4) $a['rows'] = 4;
+
+  $ret = "";
+
+  global $post;
+  $query = new WP_Query(array(
+    'post_type' => 'post',
+    'posts_per_page' => $a['rows'] * $a['cols'],
+    'tag' => $a['tag'],
+  ));
+
+  $ret .= '<section class="featured_posts cols' . $a['cols'] . '">';
+
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post();
+
+      $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
+      $title = the_title('<h3>', '</h3>', false);
+      $desc = get_the_content();
+      $link_url = get_the_permalink();
+      $link_text = get_post_meta(get_the_ID(), 'featured_button_text', true);
+
+      // Build the article
+      $ret .= '<article class="featured">';
+      $ret .= '<header style="background-image: url(' . $image . ')">';
+      $ret .= $title;
+      $ret .= '</header>';
+      $ret .= '<p>' . $desc . '</p>';
+      $ret .= '<a href="' . $link_url . '">' . $link_text . '</a>';
+      $ret .= '</article>';
+    }
+
+    wp_reset_postdata();
+  }
+
+  $ret .= '</section>';
+
+  return $ret;
+}
+add_shortcode('post_grid', 'show_post_grid');
+
 ?>
