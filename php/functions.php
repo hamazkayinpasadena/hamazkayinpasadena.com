@@ -106,9 +106,8 @@ function show_post_grid ($atts) {
 
       // Build the article
       $ret .= '<article class="featured">';
-      $ret .= '<header style="background-image: url(' . $image . ')">';
+      $ret .= '<header style="background-image: url(' . $image . ')"></header>';
       $ret .= $title;
-      $ret .= '</header>';
       $ret .= '<p>' . $desc . '</p>';
       $ret .= '<a href="' . $link_url . '">' . $link_text . '</a>';
       $ret .= '</article>';
