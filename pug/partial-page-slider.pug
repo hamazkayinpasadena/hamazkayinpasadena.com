@@ -9,4 +9,6 @@ block content
       <?php echo get_post_meta(get_the_ID(), 'title_am', true); ?>
     span.subtitle
       <?php the_title(); ?>
+    span.editlink
+      <?php edit_post_link('edit'); ?>
   <?php the_content(); ?>
