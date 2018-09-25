@@ -105,12 +105,13 @@ function show_post_grid ($atts) {
       $link_text = get_post_meta(get_the_ID(), 'featured_button_text', true);
 
       // Build the article
+      $ret .= '<a class="featured" href="' . $link_url . '">';
       $ret .= '<article class="featured">';
       $ret .= '<header style="background-image: url(' . $image . ')"></header>';
       $ret .= $title;
-      $ret .= '<p>' . $desc . '</p>';
-      $ret .= '<a href="' . $link_url . '">' . $link_text . '</a>';
+      /* $ret .= '<p>' . $desc . '</p>'; */
       $ret .= '</article>';
+      $ret .= '</a>';
     }
 
     wp_reset_postdata();

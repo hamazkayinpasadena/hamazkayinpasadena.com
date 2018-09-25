@@ -3,8 +3,9 @@ section.featured_posts
   flex-wrap: wrap
 
   //- Features
-  article.featured
+  a.featured
     flex: 1 0 auto
+    border: none
     background: $color-nav-bg
     border-radius: 3px
     margin-right: $margin-featured-posts
@@ -17,7 +18,6 @@ section.featured_posts
       background-position: center
       display: flex
       align-items: flex-end
-      margin-bottom: 10px
       border-radius: 3px 3px 0 0
       border-bottom: 1px solid $color-nav-item-border-hover
 
@@ -26,7 +26,7 @@ section.featured_posts
       margin: 0
       padding: 10px
       width: 100%
-      font-size: 1.5em
+      font-size: 1.2em
       text-align: left
 
     p
@@ -54,19 +54,19 @@ section.featured_posts
         background: $color-button-bg-hover
         color: $color-button-fg-hover
 
-  &.cols2 article.featured
+  &.cols2 a.featured
     flex-basis: calc(50% - #{$margin-featured-posts})
 
     header
       height: 300px
 
-  &.cols3 article.featured
+  &.cols3 a.featured
     flex-basis: calc(33.3333% - #{$margin-featured-posts})
 
     header
       height: 200px
 
-  &.cols4 article.featured
+  &.cols4 a.featured
     flex-basis: calc(25% - #{$margin-featured-posts})
 
     header
