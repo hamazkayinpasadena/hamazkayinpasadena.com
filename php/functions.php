@@ -87,7 +87,7 @@ function show_post_grid ($atts) {
 
   global $post;
   $query = new WP_Query(array(
-    'post_type' => 'post',
+    'post_type' => ['post', 'tribe_events'],
     'posts_per_page' => $a['rows'] * $a['cols'],
     'tag' => $a['tag'],
   ));
