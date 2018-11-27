@@ -2,13 +2,17 @@ nav#primary
   background-color: $color-nav-bg
   box-shadow: $shadow-primary
   box-sizing: border-box
+  display: flex
+  flex-direction: column
+  max-height: calc(100% - #{2 * $margin-nav})
   position: fixed
   top: $margin-nav
   width: $width-nav
   z-index: 1
 
   .admin-bar &
-    margin-top: 32px
+    margin-top: $height-admin-bar
+    max-height: calc(100% - #{2 * $margin-nav + $height-admin-bar})
 
   .logo
     display: block
@@ -36,54 +40,57 @@ nav#primary
         color: $color-subtitle-fg
         font: $font-header
 
-  ul
-    &.sub-menu
-      background-color: #fff
-      box-shadow: $shadow-primary
-      display: flex
-      flex-direction: column
-      height: 100%
-      justify-content: center
-      left: 90%
-      opacity: 0
-      position: absolute
-      top: 0
-      transition: $transition-standard
-      visibility: hidden
-      width: 130px
+  .menu-navigation-container
+    overflow-y: auto
 
-    li
-      a
-        color: $color-nav-item-fg
-        display: block
-        font: $font-am-sans-bold
-        font-size: .8em
-        padding: 10px 10px
-        text-align: right
-        text-decoration: none
+    ul
+      &.sub-menu
+        background-color: #fff
+        box-shadow: $shadow-primary
+        display: flex
+        flex-direction: column
+        height: 100%
+        justify-content: center
+        left: 90%
+        opacity: 0
+        position: absolute
+        top: 0
+        transition: $transition-standard
+        visibility: hidden
+        width: 130px
 
-        span.subtitle
-          font: $font-header
-          color: $color-subtitle-fg
+      li
+        a
+          color: $color-nav-item-fg
+          display: block
+          font: $font-am-sans-bold
+          font-size: .8em
+          padding: 10px 10px
+          text-align: right
+          text-decoration: none
 
-      &.menu-item-has-children
-        & > a .am:after
-          content: '\0025b6'
-          font-size: .6em
-          margin-left: .5em
+          span.subtitle
+            font: $font-header
+            color: $color-subtitle-fg
 
-        &:hover > .sub-menu
-          left: 100%
-          opacity: 1
-          visibility: visible
+        &.menu-item-has-children
+          & > a .am:after
+            content: '\0025b6'
+            font-size: .6em
+            margin-left: .5em
 
-      &.menu-item-has-children:hover > a, &.current-menu-item > a, &.current-menu-ancestor > a, &.current-page-item > a, &.current-page-ancestor > a, a:hover
-        background-color: $color-nav-item-bg-hover
-        box-shadow: inset 0px 1px 0px $color-nav-item-border-hover, inset 0px -1px 0px $color-nav-item-border-hover
-        color: $color-nav-item-fg-hover
+          &:hover > .sub-menu
+            left: 100%
+            opacity: 1
+            visibility: visible
 
-  .donate
-    padding-top: 10px
+        &.menu-item-has-children:hover > a, &.current-menu-item > a, &.current-menu-ancestor > a, &.current-page-item > a, &.current-page-ancestor > a, a:hover
+          background-color: $color-nav-item-bg-hover
+          box-shadow: inset 0px 1px 0px $color-nav-item-border-hover, inset 0px -1px 0px $color-nav-item-border-hover
+          color: $color-nav-item-fg-hover
 
-    input[name='submit']
-      width: 100%
+    .donate
+      padding-top: 10px
+
+      input[name='submit']
+        width: 100%
