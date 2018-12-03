@@ -1,8 +1,18 @@
-<?php $title = is_front_page() ? 'Home' : wp_title('', false); ?>
+.
+  <?php
+    global $post;
+    $title = is_front_page() ? 'Home' : wp_title('', false);
+    $desc = is_front_page() ? get_bloginfo('description') : $post->excerpt;
+    $image = is_front_page() ? '' : get_the_post_thumbnail_url($post);
+  ?>
 doctype html
 <html>
   head
     meta(charset='utf-8')
+    <meta property='og:title' content='<?php echo $title . ' | ' . get_bloginfo('name'); ?>'>
+    <meta property='og:description' content='<?php echo $desc; ?>'>
+    <meta property='og:image' content='<?php echo $image; ?>'>
+    meta(property='twitter:card' content='summary_large_image')
     title
       <?php echo $title . ' | ' . get_bloginfo('name'); ?>
     <?php wp_head(); ?>
